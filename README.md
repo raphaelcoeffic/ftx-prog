@@ -166,6 +166,19 @@ This means the Virtual COM Port (VCP) drivers are disabled, preventing the devic
 
 To enable the VCP drivers, use `sudo ./ftx_prog --load-vcp true`.
 
+## Compiling and using `ftx_prog` on Mac OS X
+
+When installing libftdi with `brew`, please beware that you need to
+install libftdi0 with `brew install libftdi0`. This will install
+`libusb-compat` as well. You will need to add the include path
+`/usr/local/include` as well as the library path `/usr/local/lib` to
+`CFLAGS` and `LDFLAGS`.
+
+Please note as well that you need to unload the `AppleUSBFTDI`driver
+prior to using `ftx_prog`. This can be done with `sudo kextunload -b
+com.apple.driver.AppleUSBFTDI`. Once you are done with `ftx_prog`, you
+can reload the driver with `sudo kextload -b com.apple.driver.AppleUSBFTDI`.
+
 ## License
 
 GPL v2

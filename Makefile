@@ -1,5 +1,10 @@
-CFLAGS = -Wall -O2 -s -Werror
-LDFLAGS = -lusb -lftdi -s
+
+CFLAGS = -Wall -O2 -Werror \
+	-I /usr/local/include
+
+LDFLAGS = -lusb -lftdi \
+	-L /usr/local/lib
+
 PROG = ftx_prog
 
 all:	$(PROG)
